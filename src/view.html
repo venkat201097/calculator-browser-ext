@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <link rel="stylesheet" href="style.css">
+        <!-- <script src="math.js" type="text/javascript"></script> -->
+        <table class="calculator" id="calculator">
+            <tr>
+                <td colspan="3">
+                    <!-- <div class="history">
+                        <img src="history.png" id="historyimg">
+                        <div class="historydropdown">
+                            <table id="historytable">
+                                <tr>
+                                    <td><button name="(" onclick="changeDisplay(this.name)">(</button></td>
+                                    <td><button name=")" onclick="changeDisplay(this.name)">)</button></td>
+                                    <td><button name="%" onclick="changeDisplay(this.name)">%</button></td>
+                                    <td><button name="AC" onclick="clearDisplay()">AC</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div> -->
+                    <input type="text" class="display" id="display" autofocus>
+                </td>
+                <td><button name="Backspace" class="button" onclick="changeDisplay(this.name)"> ← </button></td>
+            </tr>
+            <tr>
+                <td><button name="(" onclick="changeDisplay(this.name)">(</button></td>
+                <td><button name=")" onclick="changeDisplay(this.name)">)</button></td>
+                <td><button name="%" onclick="changeDisplay(this.name)">%</button></td>
+                <td><button name="AC" onclick="clearDisplay()">AC</button></td>
+            </tr>
+            <tr>
+                <td><button name="1" class="digit" onclick="changeDisplay(this.name)">1</button></td>
+                <td><button name="2" class="digit" onclick="changeDisplay(this.name)">2</button></td>
+                <td><button name="3" class="digit" onclick="changeDisplay(this.name)">3</button></td>
+                <td><button name="/" onclick="changeDisplay(this.name)">/</button></td>
+            </tr>
+            <tr>
+                <td><button name="4" class="digit" onclick="changeDisplay(this.name)">4</button></td>
+                <td><button name="5" class="digit" onclick="changeDisplay(this.name)">5</button></td>
+                <td><button name="6" class="digit" onclick="changeDisplay(this.name)">6</button></td>
+                <td><button name="*" onclick="changeDisplay(this.name)">*</button></td>
+            </tr>
+            <tr>
+                <td><button name="7" class="digit" onclick="changeDisplay(this.name)">7</button></td>
+                <td><button name="8" class="digit" onclick="changeDisplay(this.name)">8</button></td>
+                <td><button name="9" class="digit" onclick="changeDisplay(this.name)">9</button></td>
+                <td><button name="-" onclick="changeDisplay(this.name)">-</button></td>
+            </tr>
+            <tr>
+                <td><button name="0" class="digit" onclick="changeDisplay(this.name)">0</button></td>
+                <td><button name="." onclick="changeDisplay(this.name)">.</button></td>
+                <td><button name="=" class="equals" onclick="evaluateExpression()">=</button></td>
+                <td><button name="+" onclick="changeDisplay(this.name)">+</button></td>
+            </tr>
+        </table>
+        <script type="text/javascript" src="calculator.js"></script>
+    </body>
+</html>
