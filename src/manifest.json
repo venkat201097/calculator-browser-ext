@@ -13,5 +13,5 @@
     "permissions": [
         "storage"
     ],
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; script-src-attr 'unsafe-hashes' 'unsafe-inline'"
+    "content_security_policy": "script-src 'self' 'unsafe-eval' https://code.jquery.com; script-src-attr 'unsafe-hashes' 'unsafe-inline'"
 }

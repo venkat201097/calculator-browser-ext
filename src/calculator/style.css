@@ -1,11 +1,14 @@
+html {
+    border: 2px solid black;
+}
 .calculator {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     /* margin-left: auto;
     margin-right: auto; */
     font-size: 25px;
     font-weight: bold;
+    /* position: relative; */
 }
-
 button {
     width: 100%;
     padding: 5px 15px;
@@ -48,11 +51,67 @@ button.equals:active {
 }
 
 .display {
-    padding: 5px 5px;
     text-align:right;
     font-size: inherit;
     font-weight: inherit;
     border: none;
+    /* margin: 5px; */
     border-radius: 5px;
-    border: 1px solid #bfbfc3
+    border: 1px solid #bfbfc3;
+    display: inline;
+}
+
+.topbar {
+    position: relative;
+}
+.historyimg {
+    max-height: 75%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 2%;
+    margin: auto;
+    opacity: 50%;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.historydropdown {
+    max-height: 600%;
+    max-width: 200%;
+    border: 1px black solid;
+    position: absolute;
+    z-index: 1;
+    top:100%;
+    background-color: white;
+    font-weight: none;
+    font-size: 15px;
+    display: none;
+    overflow-y: auto;
+}
+  
+.historyimg:active {
+    visibility: visible;
+    border: 2px black solid;
+    position: absolute;
+    background-color: white;
+}
+
+.history-dd-button {
+    width: auto;
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    margin: 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#clear-history {
+    background-color: lightblue;
+    right: 0;
+    top: 0;
+    width: 100%;
+    display: none;
 }
