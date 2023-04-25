@@ -2,7 +2,11 @@
 
 Description: A simple calculator browser extension. This extension provides an easy way to use a calculator app over the current browser tab, rather than changing tabs/windows.
 
-![Untitled](ExtImg.png)
+### Try it out here - 
+
+<iframe src="src/calculator/view.html"></iframe>
+
+<!-- ![Untitled](ExtImg.png) -->
 
 **Version 1.0**
 
