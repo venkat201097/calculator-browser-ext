@@ -11,9 +11,14 @@ Features -
 1. Operations  - $+, -, /, *, \%$, AC (Clear) , ← (Backspace)
 2. Throws error if invalid input.
 
-Upcoming features (Version 1.1) - 
+**Version 1.1**
 
-1. Keep track of recent calculations; Click to load and edit previous expressions; Clear history every $t$ minutes.
+Added features -
+1. Keep track of recent calculations; Click to load and edit previous expressions; Clear history manually.
+
+Upcoming features (Version 1.2) - 
+
+1. Clear history every $t$ minutes.
 2. Implement % properly (same as google calculator or any calculator)
 3. Parse expression properly (% and parenthesized expressions)
 4. Implement following operations -
