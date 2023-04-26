@@ -3,7 +3,7 @@
 Description: A simple calculator browser extension. This extension provides an easy way to use a calculator app over the current browser tab, rather than changing tabs/windows.
 
 **Demo**
-[CalcDemo.mp4](CalcDemo.mp4)
+https://user-images.githubusercontent.com/40484719/234681367-ce3ff9bd-1f5b-464b-941c-e22a1f860741.mp4
 
 **Version 1.1**
 New Features - 
