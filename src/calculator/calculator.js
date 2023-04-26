@@ -21,6 +21,22 @@ Array.from(buttons).forEach(element => {
     });
 });
 
+display.onkeypress = function(e){
+    // console.log(e.target.selectionStart)
+    console.log(e.key)
+    if(!inputKeys.has(e.key)){
+        return false;
+    }
+}
+
+// display.onkeyup = function(e){
+//     console.log(e.target.selectionStart)
+// }
+
+// display.onclick = function(e){
+//     console.log(e.target.selectionStart)
+// }
+
 historyOn = false;
 historyDropdown = document.getElementById("history-block");
 document.addEventListener("click", function(event){
@@ -51,7 +67,17 @@ document.addEventListener("keydown", function(event){
 });
 
 // Evaluate expression if "Enter" is hit in the input box.
+document.getElementById("display").addEventListener("keyup", function(event){
+    // console.log('event1');
+    if(event.key==backspaceKey && display.innerHTML == '<br>'){
+        // console.log('its empty')
+        display.innerHTML = '';
+
+    }
+    console.log(display.innerHTML);
+})
 document.getElementById("display").addEventListener("keydown", function(event){
+    // console.log('event2');
     if(event.key=="Enter"){
         evaluateExpression();
     }
@@ -72,81 +98,65 @@ function keydownEventHandler(event){
     }
 }
 
-// function changeDisplay2(name, resetDisplay=false){
-//     // display = document.getElementById("display");
-//     if(display.value=="0" && name=="0")
-//         return;
-    
-//     if(name==backspaceKey){
-//         if(display.value==errorMsg)
-//             display.value = ""
-//         else
-//             display.value = display.value.slice(0, -1);
-//         if(display.value=="")
-//             display.value = "0";
-//         return;
-//     }
-
-//     if(hasEvaluated || display.value=="0"){
-//         if(!isNaN(name) || resetDisplay){
-//             display.value = "";
-//         }
-//         if(hasEvaluated)
-//             hasEvaluated = false;
-//     }
-//     display.value += name;
-// }
-
 function backSpace(){
-    if(display.value == errorMsg)
+    if(display.innerHTML == errorMsg)
         clearDisplay()
     else{
-        display.value = display.value.slice(0, -1);
-        if(display.value == "")
+        display.innerHTML = display.innerHTML.slice(0, -1);
+        if(display.innerHTML == "")
             clearDisplay()
     }
 }
 
 function changeDisplay(value, resetDisplay=false){    
-    if(display.value == errorMsg || ((display.value == "0" || hasEvaluated) && numericKeys.has(value)) || resetDisplay){
-        display.value = "";
+    if(display.innerHTML == errorMsg){
+        display.innerHTML = value;
+        return;
+    }
+        
+    if(display.innerHTML == errorMsg || ((display.innerHTML == "0" || hasEvaluated) && numericKeys.has(value)) || resetDisplay){
+        display.innerHTML = "";
     }
 
     if(hasEvaluated)
         hasEvaluated = false;
 
-    display.value += value;
+    display.innerHTML += value;
 }
 
 function evaluateExpression(){
     hasEvaluated = true;
-    expression = display.value;
+    expression = display.innerHTML;
+    console.log(expression, expression.length)
+    if(expression.length == 0)
+        return clearDisplay();
     try{
-        result = eval(expression).toString();
-        display.value = result;
+        result = math.evaluate(expression).toString();
+        display.innerHTML = result;
         if(isNaN(expression))
             store(expression, result);
     } 
     catch (error){
-        display.value = errorMsg;
+        display.innerHTML = errorMsg;
         console.log(error)
     }
 }
 
 function clearDisplay(){
-    document.getElementById("display").value = 0;
+    display.innerHTML = 0;
 }
 
 async function store(expr, result){
     currentStore = await browser.storage.local.get({'calculator_storage':[]});
     currentStore = currentStore['calculator_storage'];
-    console.log(typeof currentStore);
+    // console.log(typeof currentStore);
     currentStore.push([expr, result]);
-    console.log(currentStore)
+    // console.log(currentStore)
     browser.storage.local.set({
         'calculator_storage': currentStore
     });
 }
+
 async function clearHistory(){
     await browser.storage.local.clear();
     return displayHistory();
@@ -159,7 +169,7 @@ async function displayHistory(){
     if(currentStore.length == 0){
         clearHistoryButton.style.display = 'none';
         historyContent.innerHTML = "No calculations in storage";
-        console.log(clearHistoryButton.style.display)
+        // console.log(clearHistoryButton.style.display)
         return;
     }
     clearHistoryButton.style.display = 'block';
